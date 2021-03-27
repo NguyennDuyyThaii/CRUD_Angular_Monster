@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="card shadow-sm">
+        <img [src]="monsterData.image" height="300" width="412" alt="">
+        <span class="text-success" style="text-align:center; font-size: 25px;">{{monsterData.name}}</span>
+        <div class="card-body">
+            <p class="card-text">{{monsterData.detail}}</p>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                    <ng-container *ngIf="monsterData.spell != undefined">
+                        <button *ngFor="let p of monsterData.spell" class="btn btn-sm btn-outline-success">{{p.name}}</button>&nbsp;
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="btn-group">
+                <button (click)="updateMonster()" class="btn btn-sm btn-outline-secondary">Sửa Quái Vật</button>&nbsp;
+                <button (click)="deleteMonster()" class="btn btn-sm btn-outline-secondary">Xoá Quái Vật</button>
+            </div>
+        </div>
+    </div>
+</div>
