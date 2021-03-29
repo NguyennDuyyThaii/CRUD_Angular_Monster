@@ -14,35 +14,35 @@ export class MonsterFormComponent implements OnInit {
   listSpells: Array<Spell> = [
     {
       id: 1,
-      name: 'Quái Vật Béo',
+      name: 'Ngủ',
     },
     {
       id: 2,
-      name: 'Quái Vật Gầy',
+      name: 'Nuốt đồ vật',
     },
     {
       id: 3,
-      name: 'Quái Vật Thẩm Mỹ',
+      name: 'Phun nọc độc',
     },
     {
       id: 4,
-      name: 'Quái Vật Làm Mũi',
+      name: 'Phun nước',
     },
     {
       id: 5,
-      name: 'Quái Vật Mèo',
+      name: 'Bay',
     },
     {
       id: 6,
-      name: 'Quái Vật Chuột',
+      name: 'Tăng tốc',
     },
     {
       id: 7,
-      name: 'Quái Vật Ba Đầu',
+      name: 'Biến hình',
     },
     {
       id: 8,
-      name: 'Quái Vật Hai Đầu',
+      name: 'Tàn hình',
     },
   ];
   constructor() {}
@@ -53,22 +53,24 @@ export class MonsterFormComponent implements OnInit {
     this.submitForm.emit(this.formObject);
   }
 
-  addSkill2FormObject(item: Spell) {
-    let index = this.formObject.spell.findIndex((i) => i.id == item.id);
-    if (index == -1) {
-      this.formObject.spell.push({ ...item });
-    } else {
-      this.formObject.spell = { ...this.formObject }.spell.filter(
-        el => el.id != item.id
-      );
+  addSkill2FormObject(item: Spell, event) {
+    if(event.target.checked == true){
+      let index = this.formObject.spell.findIndex((i) => i.id == item.id);
+      if (index == -1) {
+      this.formObject.spell.push(item);
+        }
+    }else {
+      this.formObject.spell.splice(this.formObject.spell.findIndex(i => {
+        i.id != item.id
+      }))
     }
   }
 
   setCheckedCheckbox(item: Spell) {
     if (this.formObject.spell == undefined) {
-      this.formObject.spell= [];
+      this.formObject.spell = [];
     }
-    let index = this.formObject.spell.findIndex(i => i.id == item.id);
+    let index = this.formObject.spell.findIndex((i) => i.id == item.id);
     return index != -1;
   }
 }

@@ -19,8 +19,8 @@
         <label for="exampleFormControlTextarea1" class="form-label">Chọn phép thuật con Quái Vật</label>
         <div *ngFor="let item of listSpells">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" (click)="addSkill2FormObject(item)" [checked]="setCheckedCheckbox(item)" id="flexRadioDefault1-{{item.id}}">
-                <label class="form-check-label" for="flexRadioDefault1-{{item.id}}">
+                <input class="form-check-input" type="checkbox" (click)="addSkill2FormObject(item, $event)" [checked]="setCheckedCheckbox(item)" id="checkbox-{{item.id}}">
+                <label class="form-check-label" for="checkbox-{{item.id}}">
               {{item.name}}
             </label>
             </div>

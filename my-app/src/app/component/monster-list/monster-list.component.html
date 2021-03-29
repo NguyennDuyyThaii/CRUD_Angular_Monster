@@ -5,10 +5,10 @@
         <div class="card-body">
             <p class="card-text">{{monsterData.detail}}</p>
             <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                    <ng-container *ngIf="monsterData.spell != undefined">
-                        <button *ngFor="let p of monsterData.spell" class="btn btn-sm btn-outline-success">{{p.name}}</button>&nbsp;
-                    </ng-container>
+                <div class="btn-group" *ngIf="monsterData.spell != undefined">
+
+                    <button *ngFor="let p of monsterData.spell" class="btn btn-sm btn-outline-success">{{p.name}}</button>&nbsp;
+
                 </div>
             </div>
         </div>
