@@ -2,5 +2,27 @@
 - Các chức năng thêm sửa xoá hiển thị danh sách các quái vật
 - Sử dụng OutPut-InPut giao tiếp giữa 2 thằng cha và con
 
-- "strictDomEventTypes": false tsconfig.json if the error is property 'value' does not exist on type 'eventtarget'
-- Object is possibly 'undefined'.
+- ts.config.json
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "es2020",
+    "lib": [
+      "es2018",
+      "dom"
+    ]
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false
+  }
+}
