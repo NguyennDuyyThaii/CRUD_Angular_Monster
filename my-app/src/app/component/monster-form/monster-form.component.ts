@@ -43,7 +43,7 @@ export class MonsterFormComponent implements OnInit {
     {
       id: 8,
       name: 'Tàn hình',
-    },
+    }
   ];
   constructor() {}
   ngOnInit(): void {}
@@ -54,15 +54,16 @@ export class MonsterFormComponent implements OnInit {
   }
 
   addSkill2FormObject(item: Spell, event) {
+    let x = this.formObject.spell
     if(event.target.checked == true){
-      let index = this.formObject.spell.findIndex((i) => i.id == item.id);
+      let index = x.findIndex((i) => i.id == item.id);
       if (index == -1) {
-      this.formObject.spell.push(item);
+      x.push(item);
         }
     }else {
-      this.formObject.spell.splice(this.formObject.spell.findIndex(i => {
-        i.id != item.id
-      }))
+      x.splice(x.findIndex(i => 
+        i.id == item.id
+      ),1)
     }
   }
 
@@ -74,3 +75,4 @@ export class MonsterFormComponent implements OnInit {
     return index != -1;
   }
 }
+
